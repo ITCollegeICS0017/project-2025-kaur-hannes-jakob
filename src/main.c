@@ -8,4 +8,4 @@ int main(void) {
     if (scanf("%d %d", &x, &y) != 2) return 1;
     printf("Result: %d\n", add(x, y));
     return 0;
-}
+} //test
