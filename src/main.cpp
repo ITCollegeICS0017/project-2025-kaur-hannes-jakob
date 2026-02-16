@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <iostream>
 
 enum Currency { 
 	USD, 
@@ -18,20 +19,20 @@ struct Transaction {
 class Cashier {
 public:
 	void processTransaction() {
-		std::cout << "Processing transaction..." << std::endl;
+		std::cout << "Processing transaction...";
 	}
 };
 
 class Manager {
 	public:
 	void manageFees() {
-		std::cout << "Changing the fee..." << std::endl;
+		std::cout << "Changing the fee...";
 	}
 };
 
 class Receipt {
 public:
 	void printReceipt() {
-		std::cout << "Receipt printed." << std::endl;
+		std::cout << "Receipt printed.";
 	}
 };
