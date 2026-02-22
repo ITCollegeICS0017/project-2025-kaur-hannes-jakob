@@ -1,7 +1,16 @@
 #include <iostream>
+#include <stdio.h>
 using namespace std; //make separate classes for receipt, transactions and currency reserve
 
 int choice;
+enum Currency {
+	USD,
+	EUR,
+	GBP,
+	JPY,
+	PLN,
+	CNY,
+};
 class manager {
 public:  //change from public to only what manager needs to access
 	void manager_profile() {
@@ -54,9 +63,9 @@ public: // change from public to only what cashier needs to access
 	}
 };
 
-class transaction_calc {
+class transaction {
 public:  //correct permissions, who can access etc
-	void convertToEur() {
+	void convertToEur() { //see tuleb ringi teha, nii et kasutad enum Currency-t
 		cout << "Choose the currency you want to exchange from\m" << "press 1 for EUR\n" << "Press 2 for USD\n" << "Press 3 for Pounds" << endl;
 		cin >> choice;
 		double rateToEur = 0;
