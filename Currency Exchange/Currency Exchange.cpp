@@ -10,7 +10,37 @@ enum Currency {
 	JPY,
 	PLN,
 	CNY,
+	CURRENCY_COUNT
 };
+enum exchange_fee {
+	fee,
+};
+
+class currency_reserve {
+private:
+	double reserve[CURRENCY_COUNT];
+public:
+	currency_reserve() {
+		reserve[USD] = 5000;
+		reserve[EUR] = 10000;
+		reserve[GBP] = 4000;
+		reserve[JPY] = 100000;
+		reserve[PLN] = 10000;
+		reserve[CNY] = 200000;
+	}
+	void show_reserve() {
+		cout << "USD: " << reserve[USD] << endl;
+		cout << "EUR: " << reserve[EUR] << endl;
+		cout << "GBP: " << reserve[GBP] << endl;
+		cout << "JPY: " << reserve[JPY] << endl;
+		cout << "PLN: " << reserve[PLN] << endl;
+		cout << "CNY: " << reserve[CNY] << endl;
+	}
+	bool has_reserve(Currency c, double amount) {
+		return reserve[c] >= amount;
+	}
+};
+
 class manager {
 public:  //change from public to only what manager needs to access
 	void manager_profile() {
@@ -37,10 +67,14 @@ public:  //change from public to only what manager needs to access
 	}
 };
 class cashier {
+private: 
+	currency_reserve* reserve;
 public: // change from public to only what cashier needs to access
+	cashier(currency_reserve* r): reserve(r) {}
 	void cashier_profile() {
 		while (choice != 0) {
 			cout << "press 1 if you want to make a transaction\n" << "press 2 if you want to create a daily summary\n" << "press 3 if you want to print a receipt\n" << "Press 0 to return to main menu" << endl;
+			cout << "press 4 if you want to see the reserve" << endl;
 			cin >> choice;
 			switch (choice) {
 			case 1:
@@ -51,6 +85,9 @@ public: // change from public to only what cashier needs to access
 				break;
 			case 3:
 				cout << "RECEIPTS\n"; //separate class for this
+				break;
+			case 4:
+				reserve->show_reserve();
 				break;
 			case 0:
 				break;
@@ -66,10 +103,10 @@ public: // change from public to only what cashier needs to access
 class transaction {
 public:  //correct permissions, who can access etc
 	void convertToEur() { //see tuleb ringi teha, nii et kasutad enum Currency-t
-		cout << "Choose the currency you want to exchange from\m" << "press 1 for EUR\n" << "Press 2 for USD\n" << "Press 3 for Pounds" << endl;
+		cout << "Choose the currency you want to exchange from\n" << "press 1 for EUR\n" << "Press 2 for USD\n" << "Press 3 for Pounds" << endl;
 		cin >> choice;
 		double rateToEur = 0;
-		while (true) {  // vaata ule kas see while(true) loop sobib siia ikka???
+		while (choice != 0) {  // vaata ule kas see while(true) loop sobib siia ikka???
 			switch (choice) {
 			case 1:
 				rateToEur = 1.0;
@@ -93,12 +130,13 @@ void main_menu() {
 	cin >> choice;
 }
 int main() {
+	currency_reserve reserve;
 	while (true) {
 		main_menu();
 		switch (choice) {
 		case 1:
 			cout << "Cashier profile selected" << endl;
-			cashier c;
+			cashier c(&reserve);
 			c.cashier_profile();
 			break;
 		case 2:

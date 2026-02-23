@@ -1,4 +1,13 @@
 ﻿  Currency Exchange.cpp
-  transactions.cpp
-  Generating Code...
-  Currency Exchange.vcxproj -> C:\Users\hanne\source\repos\Currency Exchange\ARM64\Debug\Currency Exchange.exe
+C:\Users\hanne\source\repos\Currency Exchange\Currency Exchange\Currency Exchange.cpp(142,3): error C2360: initialization of 'c' is skipped by 'case' label
+      C:\Users\hanne\source\repos\Currency Exchange\Currency Exchange\Currency Exchange.cpp(139,12):
+      see declaration of 'c'
+  
+C:\Users\hanne\source\repos\Currency Exchange\Currency Exchange\Currency Exchange.cpp(147,3): error C2360: initialization of 'c' is skipped by 'case' label
+      C:\Users\hanne\source\repos\Currency Exchange\Currency Exchange\Currency Exchange.cpp(139,12):
+      see declaration of 'c'
+  
+C:\Users\hanne\source\repos\Currency Exchange\Currency Exchange\Currency Exchange.cpp(149,3): error C2361: initialization of 'c' is skipped by 'default' label
+      C:\Users\hanne\source\repos\Currency Exchange\Currency Exchange\Currency Exchange.cpp(139,12):
+      see declaration of 'c'
+  
