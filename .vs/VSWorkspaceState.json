@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\src",
+    "\\vs",
+    "\\vs\\CE"
   ],
-  "SelectedNode": "\\C:\\Users\\hanne\\Source\\Repos\\project-2025-kaur-hannes-jakob",
+  "SelectedNode": "\\vs\\CE.sln",
   "PreviewInSolutionExplorer": false
 }
