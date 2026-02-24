@@ -2,7 +2,7 @@
 #include <stdio.h>
 using namespace std; //make separate classes for receipt, transactions and currency reserve
 
-int choice;
+int choice = -1;
 enum Currency {USD, EUR, GBP, JPY, PLN, CNY, CURRENCY_COUNT};
 enum exchange_fee {
 	fee,
