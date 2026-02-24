@@ -1,1 +1,22 @@
-.vs/
+
+# Ignore everything in the repository root (files and folders)
+/*
+
+# Keep this .gitignore tracked
+!/.gitignore
+
+# Allowlist specific directories and their contents
+!/src
+!/src/**
+!/docs
+!/docs/**
+!/tests
+!/tests/**
+
+# Allowlist README/readme variants and Makefile/makefile variants
+!/README
+!/README.md
+!/README.txt
+!/readme
+!/Makefile
+!/makefile
